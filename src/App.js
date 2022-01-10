@@ -6,7 +6,7 @@ const todos = [
   {
     title: 'Learn setState()',
     id: 1,
-    isCompleted: false,
+    isCompleted: true,
   },
   {
     title: 'Style my Todo List',
@@ -22,7 +22,7 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      todos: []
+      todos: todos
     };
   }
 
@@ -31,7 +31,10 @@ class App extends React.Component {
       <div>
         <h1>Todo List: MVP</h1>
         <TodoList todos={this.state.todos} />
-        <TodoForm />
+        <div>
+          <TodoForm />
+          <button>Clear Completed</button>
+        </div>
       </div>
     );
   }
