@@ -8,6 +8,7 @@ class TodoList extends React.Component {
     render(){
         return(
             <div>
+                {this.props.todos.map((todo, ind) => <Todo key={ind} todo={todo}/>)}
             </div>
         )
     }
