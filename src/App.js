@@ -4,14 +4,14 @@ import TodoForm from './components/TodoForm';
 
 const todos = [
   {
-    title: 'Learn setState()',
+    task: 'Learn setState()',
     id: 1,
-    isCompleted: false,
+    completed: false,
   },
   {
-    title: 'Style my Todo List',
+    task: 'Style my Todo List',
     id: 2,
-    isCompleted: false,
+    completed: false,
   }
 ]
 
@@ -29,7 +29,7 @@ class App extends React.Component {
   handleClearTodos = () => {
     this.setState({
       ...this.state,
-      todos: this.state.todos.filter(todo => !todo.isCompleted)
+      todos: this.state.todos.filter(todo => !todo.completed)
     })
   }
 
@@ -45,7 +45,7 @@ class App extends React.Component {
     this.setState({
       ...this.state,
       todos: this.state.todos.map(todo => 
-        (selectedTodo.id === todo.id ? {...todo, isCompleted: !todo.isCompleted} : todo)
+        (selectedTodo.id === todo.id ? {...todo, completed: !todo.completed} : todo)
       )
     })
     console.log(this.state);
