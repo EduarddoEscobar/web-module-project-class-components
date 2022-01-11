@@ -6,7 +6,7 @@ const todos = [
   {
     title: 'Learn setState()',
     id: 1,
-    isCompleted: true,
+    isCompleted: false,
   },
   {
     title: 'Style my Todo List',
@@ -26,14 +26,39 @@ class App extends React.Component {
     };
   }
 
+  handleClearTodos = () => {
+    this.setState({
+      ...this.state,
+      todos: this.state.todos.filter(todo => !todo.isCompleted)
+    })
+  }
+
+  handleAddTodo = (newTodo) => {
+    this.setState({
+      ...this.state,
+      todos: [...this.state.todos, newTodo]
+    })
+  }
+
+  handleToggleTodo = (selectedTodo) => {
+    console.log(selectedTodo);
+    this.setState({
+      ...this.state,
+      todos: this.state.todos.map(todo => 
+        (selectedTodo.id === todo.id ? {...todo, isCompleted: !todo.isCompleted} : todo)
+      )
+    })
+    console.log(this.state);
+  }
+
   render() {
     return (
       <div>
         <h1>Todo List: MVP</h1>
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos} handleToggleTodo={this.handleToggleTodo}/>
         <div>
-          <TodoForm />
-          <button>Clear Completed</button>
+          <TodoForm handleAddTodo={this.handleAddTodo} />
+          <button onClick={this.handleClearTodos}>Clear Completed</button>
         </div>
       </div>
     );

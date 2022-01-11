@@ -10,11 +10,3 @@ html, body, #root {
 label {
     display:block;
 }
-
-.completed{
-    text-decoration: line-through;
-}
-
-h1{
-    color: red;
-}
