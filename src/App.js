@@ -57,8 +57,7 @@ class App extends React.Component {
         <h1>Todo List: MVP</h1>
         <TodoList todos={this.state.todos} handleToggleTodo={this.handleToggleTodo}/>
         <div>
-          <TodoForm handleAddTodo={this.handleAddTodo} />
-          <button onClick={this.handleClearTodos}>Clear Completed</button>
+          <TodoForm handleAddTodo={this.handleAddTodo} handleClearTodos={this.handleClearTodos}/>
         </div>
       </div>
     );
